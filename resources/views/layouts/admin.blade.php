@@ -30,7 +30,9 @@
     <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ url('color/css/colorpicker.css') }}" rel="stylesheet">
     <link href="{{ url('css/flaticon.css') }}" rel="stylesheet">
+    <link href="{{ url('css/simditor.css') }}" rel="stylesheet" />
 
+    @yield('style')
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -180,6 +182,13 @@
                                 <span class="hide-menu">{{ __('Orders') }}</span>
                             </a>
                         </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('admin.setting.index') }}" aria-expanded="false">
+                                <i class="mdi mdi-settings"></i>
+                                <span class="hide-menu">{{ __('Setting') }}</span>
+                            </a>
+                        </li>
                         
 
                     </ul>
@@ -195,9 +204,10 @@
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
         <div class="page-wrapper">
-           
-            @yield('content')
 
+            <div style="min-height: 85vh">
+                @yield('content')
+            </div>
 
             <!-- ============================================================== -->
             <!-- footer -->
@@ -242,6 +252,11 @@
     <script src="{{ url('res/waves.js') }}"></script>
     <script src="{{ url('res/sidebarmenu.js') }}"></script>
     <script src="{{ url('res/custom.js') }}"></script>
+    <script src="{{ url('js/module.js') }}"></script>
+    <script src="{{ url('js/uploader.js') }}"></script>
+    <script src="{{ url('js/hotkeys.js') }}"></script>
+    <script src="{{ url('js/dompurify.js') }}"></script>
+    <script src="{{ url('js/simditor.js') }}"></script>
     <script>
         $(function() {
 

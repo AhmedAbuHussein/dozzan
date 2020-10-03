@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Ahmed Shaker">
 
     <title>{{ config('app.name', 'Dozzan') }}</title>
     <link rel="icon" href="{{ url('images/logo.png') }}" type="image/gif" sizes="30x30">
@@ -31,6 +31,7 @@
     <!-- Modernizer -->
     <script src="{{ url('js/modernizer.js') }}"></script>
 
+    @yield('style')
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>

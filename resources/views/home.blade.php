@@ -1,4 +1,20 @@
 @extends('layouts.app')
+@section('style')
+<style>
+    .banner-text #header p{
+        font: inherit;
+        color: inherit;
+        display: inline-block;
+        padding: 0;
+    }
+    p.title-caption p{
+        font: inherit;
+        color: inherit;
+        display: inline-block;
+        padding: 0;
+    }
+    </style>
+@endsection
 @section('content')
 
 <div id="banner" class="banner full-screen-mode parallax">
@@ -7,9 +23,9 @@
             <div class="banner-static">
                 <div class="banner-text">
                     <div class="banner-cell">
-                        <h1>{{ optional($setting->where('key', 'banner_header')->first())->value }}  <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="{{ optional($setting->where('key', 'banner_words')->first())->value }}" data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
-                        <h2>{{ optional($setting->where('key', 'banner_header_two')->first())->value }} </h2>
-                        <p>{{ optional($setting->where('key', 'banner_desc')->first())->value }}</p>
+                        <h1 id="header">{!! optional($setting->where('key', 'banner_header')->first())->value !!}  <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="{{ optional($setting->where('key', 'banner_words')->first())->value }}" data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
+                        {!! optional($setting->where('key', 'banner_header_two')->first())->value !!}
+                        {!! optional($setting->where('key', 'banner_desc')->first())->value !!}
                         <div class="book-btn">
                             <a href="#reservation" class="table-btn hvr-underline-from-center">Book my Table</a>
                         </div>

@@ -37,16 +37,6 @@ Route::group(['namespace'=> 'Admin', 'prefix'=> 'admin', 'as'=> 'admin.'], funct
 
         });
 
-        Route::group(['namespace'=>'Product', 'prefix'=>'product', 'as'=>'products.'], function() {
-            Route::get('/', 'ProductController@index')->name('index');
-            Route::get('{product}/show', 'ProductController@show')->name('show');
-            Route::get('{product}/edit', 'ProductController@edit')->name('edit');
-            Route::post('{product}/edit', 'ProductController@update');
-
-            Route::get('{product}/delete', 'ProductController@destroy')->name('destroy');
-            Route::get('create', 'ProductController@create')->name('create');
-        });
-
 
         Route::group(['namespace'=>'Category', 'prefix'=>'category', 'as'=>'categories.'], function() {
             Route::get('/', 'CategoryController@index')->name('index');
@@ -56,11 +46,33 @@ Route::group(['namespace'=> 'Admin', 'prefix'=> 'admin', 'as'=> 'admin.'], funct
 
             Route::get('{category}/delete', 'CategoryController@destroy')->name('destroy');
             Route::get('create', 'CategoryController@create')->name('create');
+            Route::post('create', 'CategoryController@store');
         });
+
+
+        Route::group(['namespace'=>'Product', 'prefix'=>'product', 'as'=>'products.'], function() {
+            Route::get('/', 'ProductController@index')->name('index');
+            Route::get('{product}/show', 'ProductController@show')->name('show');
+            Route::get('{product}/edit', 'ProductController@edit')->name('edit');
+            Route::post('{product}/edit', 'ProductController@update');
+
+            Route::get('{product}/delete', 'ProductController@destroy')->name('destroy');
+            Route::get('create', 'ProductController@create')->name('create');
+            Route::post('create', 'ProductController@store');
+        });
+
 
         Route::group(['namespace'=>'Order', 'prefix'=>'order', 'as'=>'orders.'], function() {
             Route::get('/', 'OrderController@index')->name('index');
         });
+
+        Route::group(['namespace'=>'Setting', 'prefix'=>'setting', 'as'=>'setting.'], function() {
+            Route::get('/', 'SettingController@index')->name('index');
+            Route::get('/{setting}/edit/{type}', 'SettingController@edit')->name('edit');
+            Route::post('/{setting}/edit/{type}', 'SettingController@update');
+        });
+
+
 
     });
 
