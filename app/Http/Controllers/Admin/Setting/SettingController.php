@@ -45,6 +45,6 @@ class SettingController extends Controller
         }
         
         cache()->forget('SETTING');
-        return view('admin.setting.edit', compact('setting', 'type'));
+        return redirect()->route('admin.setting.index')->with(['message'=>'Setting Update Successfully', 'icon'=> 'success']);
     }
 }

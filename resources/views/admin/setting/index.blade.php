@@ -58,7 +58,7 @@
                                 </ul>
                                 @php  $type = "words";  @endphp
                             @else
-                                <p>{{ $item->value }}</p>
+                                {!! $item->value  !!}
                                 @php  $type = "text";  @endphp
                             @endif
                         </td>

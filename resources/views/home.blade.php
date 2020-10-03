@@ -13,6 +13,16 @@
         display: inline-block;
         padding: 0;
     }
+    .title-custom>p{
+        letter-spacing: 0.16px;
+        padding: 20px 120px;
+        color: #666;
+        font-size: 18px;
+        text-align: center;
+    }
+    .title-custom.p-white>p{
+        color: #fff;
+    }
     </style>
 @endsection
 @section('content')
@@ -116,11 +126,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="wow fadeIn title-custom" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title text-center">
-                    Our Menu 	
-                </h2>
-                    <p class="title-caption text-center">{!! optional($setting->where('key','menu_desc')->first())->value !!}</p>
+                        Our Menu 	
+                    </h2>
+                    {!! optional($setting->where('key','menu_desc')->first())->value !!}
                 </div>
                 <div class="tab-menu">
                     <div class="slider slider-nav">
@@ -169,11 +179,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="wow fadeIn title-custom p-white" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title text-center">
                     Our Team 	
                 </h2>
-                    <p class="title-caption text-center">{!! optional($setting->where('key', 'team_desc')->first())->value !!}</p>
+                    {!! optional($setting->where('key', 'team_desc')->first())->value !!}
                 </div>
                 <div class="team-box">
 
@@ -221,11 +231,11 @@
                     <h2 class="block-title text-center">
                     Our Gallery	
                 </h2>
-                    <p class="title-caption text-center">{!! optional($setting->where('key', 'gallery_desc')->first())->value !!}</p>
+                    <div class="title-custom">{!! optional($setting->where('key', 'gallery_desc')->first())->value !!}</div>
                 </div>
                 <div class="gal-container clearfix">
                     @foreach ($products as $key=>$product)
-                    <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                    <div class="col-md-3 col-sm-6 co-xs-12 gal-item">
                         <div class="box">
                             <a href="#" data-toggle="modal" data-target="#product-{{ ($key+1) }}">
                                 <img src="{{ $product->image }}" alt="" />
