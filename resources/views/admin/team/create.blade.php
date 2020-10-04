@@ -43,7 +43,7 @@
     </div>
     <div class="container" style="margin-top: 60px">
 
-        <form action="{{ route('admin.team.edit', ['employee'=>$employee]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.team.create') }}" method="POST" enctype="multipart/form-data">
             @csrf
             
             <div class="form-group row">
@@ -51,7 +51,7 @@
                     <label for="name" class="control-label">{{ __('Name') }}</label>
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name="name" value="{{ old('name')??$employee->name }}" class="form-control" required  id="name" placeholder="employee Name">
+                    <input type="text" name="name" value="{{ old('name') }}" class="form-control" required  id="name" placeholder="employee Name">
                     @error('name')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
@@ -63,7 +63,7 @@
                     <label class="control-label">{{ __('About Employee') }}</label>
                 </div>
                 <div class="col-md-8">
-                    <textarea name="details" required placeholder="Details about Employee" class="form-control">{{ old('details')??$employee->details }}</textarea>
+                    <textarea name="details" required placeholder="Details about Employee" class="form-control">{{ old('details') }}</textarea>
                     @error('details')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
@@ -75,7 +75,7 @@
                     <label class="control-label">{{ __('Facebook Link') }}</label>
                 </div>
                 <div class="col-md-8">
-                    <input type="url" name="facebook" value="{{ old('facebook')??$employee->facebook }}" class="form-control" required placeholder="Facebook Url">
+                    <input type="url" name="facebook" value="{{ old('facebook') }}" class="form-control" required placeholder="Facebook Url">
                     @error('facebook')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
@@ -87,7 +87,7 @@
                     <label class="control-label">{{ __('Twitter Link') }}</label>
                 </div>
                 <div class="col-md-8">
-                    <input type="url" name="twitter" value="{{ old('twitter')??$employee->twitter }}" class="form-control" required  placeholder="Twitter Url">
+                    <input type="url" name="twitter" value="{{ old('twitter') }}" class="form-control" required  placeholder="Twitter Url">
                     @error('twitter')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
@@ -99,7 +99,7 @@
                     <label class="control-label">{{ __('Linkedin Link') }}</label>
                 </div>
                 <div class="col-md-8">
-                    <input type="url" name="linkedin" value="{{ old('linkedin')??$employee->linkedin }}" class="form-control" required  placeholder="Linkedin Url">
+                    <input type="url" name="linkedin" value="{{ old('linkedin') }}" class="form-control" required  placeholder="Linkedin Url">
                     @error('linkedin')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
@@ -108,10 +108,10 @@
 
             <div class="form-group col-md-8 offset-md-4 mb-3">
                 <label for="img" id="label-img">
-                    <img style="cursor: pointer;" class="preview" src="{{ url($employee->image) }}" title="Choose image" />
+                    <img style="cursor: pointer;" class="preview" src="" title="Choose image" />
                 </label>
     
-                <input type="file" class="form-control-file" name="image" id="img" accept="image/*" >
+                <input type="file" class="form-control-file" required name="image" id="img" accept="image/*" >
                 @error('image')
                 <span class="text-danger">
                     <strong>{{ $message }}</strong>

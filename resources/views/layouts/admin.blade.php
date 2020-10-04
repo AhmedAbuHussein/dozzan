@@ -184,6 +184,13 @@
                         </li>
 
                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('admin.parties.index') }}" aria-expanded="false">
+                                <i class="mdi mdi-database"></i>
+                                <span class="hide-menu">{{ __('Parties') }}</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('admin.team.index') }}" aria-expanded="false">
                                 <i class="mdi mdi-account-multiple-minus"></i>
                                 <span class="hide-menu">{{ __('Team') }}</span>

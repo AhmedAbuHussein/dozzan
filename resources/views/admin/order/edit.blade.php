@@ -22,7 +22,7 @@
 <div class="page-breadcrumb">
     <div class="row">
         <div class="col-5 align-self-center">
-            <h4 class="page-title">{{ __('Product') }}</h4>
+            <h4 class="page-title">{{ __('Order') }}</h4>
         </div>
         <div class="col-7 align-self-center">
             <div class="d-flex align-items-center justify-content-end">
@@ -32,7 +32,7 @@
                             <a href="{{ route('admin.index') }}">{{ __('Home') }}</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{ route('admin.products.index') }}">{{ __('Product') }}</a>
+                            <a href="{{ route('admin.orders.index') }}">{{ __('Order') }}</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">{{ __('Edit') }}</li>
                     </ol>
@@ -43,14 +43,14 @@
 </div>
     <div class="container-fluid">
 
-        <form action="{{ route('admin.products.edit', ['product'=> $product->id]) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.orders.edit', ['order'=> $order->id]) }}" method="post">
             @csrf
             
             <div class="row">
                 <div class="form-group col-md-6 offset-md-3">
-                    <label for="name">{{ __('Name') }}</label>
-                    <input type="text" name="name" id="name" value="{{ old('name')??$product->name }}" class="form-control" placeholder="Item Name" required>
-                    @error('name')
+                    <label for="user">{{ __('User') }}</label>
+                    <input type="text"  id="user" value="{{ $order->user->name }}" class="form-control" readonly />
+                    @error('user')
                     <span class="text-danger">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -59,7 +59,7 @@
 
                 <div class="form-group col-md-6 offset-md-3">
                     <label for="price">{{ __('Price') }}</label>
-                    <input type="number" min="1" name="price" id="price" value="{{ old('price')??$product->price }}" class="form-control" placeholder="Item price" required>
+                    <input  id="price" value="{{ $order->price }}" class="form-control" readonly>
                     @error('price')
                     <span class="text-danger">
                         <strong>{{ $message }}</strong>
@@ -68,42 +68,29 @@
                 </div>
 
                 <div class="form-group col-md-6 offset-md-3">
-                    <label for="details">{{ __('Details') }}</label>
-                    <textarea rows="3" name="details" id="details" class="form-control" placeholder="Item details" required>{{ old('details')??$product->details }}</textarea>
-                    @error('details')
-                    <span class="text-danger">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                        @enderror
-                </div>
-
-                <div class="form-group col-md-6 offset-md-3">
-                    <label for="category_id">{{ __('Category') }}</label>
-                    <select class="form-control" name="category_id" required>
-                        <option value="">-- Choose --</option>
-                        @foreach ($categories as $category)
-                        <option {{ ($product->category_id == $category->id || old('category_id') == $category->id)? 'selected':'' }} value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                    @error('category_id')
+                    <label for="shipping">{{ __('Shipping') }}</label>
+                    <input type="number" min="0"  id="shipping" name="shipping" value="{{ old('shipping')??$order->shipping }}" placeholder="Shipping for this order" class="form-control" required>
+                    @error('shipping')
                     <span class="text-danger">
                         <strong>{{ $message }}</strong>
                     </span>
                      @enderror
                 </div>
 
-                    <div class="form-group col-md-6 offset-md-3 mb-3">
-                        <label for="img" id="label-img">
-                            <img style="cursor: pointer;" class="preview" src="{{ url($product->image) }}" title="Choose image" />
-                        </label>
-            
-                        <input type="file" class="form-control-file" name="image" id="img" accept="image/*" >
-                        @error('image')
-                        <span class="text-danger">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                         @enderror
-                    </div>
+                <div class="form-group col-md-6 offset-md-3">
+                    <label for="status">{{ __('Status') }}</label>
+                    <select class="form-control" name="status" required>
+                        <option value="">-- Choose --</option>
+                        @foreach ($status as $condition)
+                        <option {{ ($order->status == $condition || old('status') == $condition)? 'selected':'' }} value="{{ $condition }}">{{ $condition }}</option>
+                        @endforeach
+                    </select>
+                    @error('status')
+                    <span class="text-danger">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                     @enderror
+                </div>
 
                 <div class="form-group col-md-6 offset-md-3 mb-4 mt-4">
                     <button type="submit" class="btn btn-purple btn-block"><i class="fa fa-send"></i> {{ __('Process') }}</button>

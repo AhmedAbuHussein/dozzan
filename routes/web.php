@@ -54,6 +54,20 @@ Route::group(['namespace'=> 'Admin', 'prefix'=> 'admin', 'as'=> 'admin.'], funct
         # Orders Routes
         Route::group(['namespace'=>'Order', 'prefix'=>'order', 'as'=>'orders.'], function() {
             Route::get('/', 'OrderController@index')->name('index');
+            Route::get('{order}/show', 'OrderController@show')->name('show');
+            Route::get('{order}/edit', 'OrderController@edit')->name('edit');
+            Route::post('{order}/edit', 'OrderController@update');
+        });
+
+         # Parties Routes
+         Route::group(['namespace'=>'Party', 'prefix'=>'parties', 'as'=>'parties.'], function() {
+            Route::get('/', 'PartyController@index')->name('index');
+            Route::get('{party}/show', 'PartyController@show')->name('show');
+            Route::get('{party}/edit', 'PartyController@edit')->name('edit');
+            Route::post('{party}/edit', 'PartyController@update');
+            Route::get('{party}/delete', 'PartyController@destroy')->name('destroy');
+            Route::get('create', 'PartyController@create')->name('create');
+            Route::post('create', 'PartyController@store');
         });
 
         # Team Routes

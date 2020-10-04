@@ -9,6 +9,7 @@
                     <div class="d-flex justify-content-center mb-3">
                         <a href="{{ route('home') }}"><img src="{{ url('images/logo.png') }}" alt="logo" style="width: 150px;" /></a>
                     </div>
+					{!! NoCaptcha::renderJs() !!}
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -59,6 +60,15 @@
                             <label for="password-confirm">{{ __('Confirm Password') }}</label>
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                         </div>
+						
+						 <div class="form-group ">
+						{!! NoCaptcha::display() !!}
+						@error('g-recaptcha-response')
+							<span class="help-block">
+								<strong>{{ $message }}</strong>
+							</span>
+						@endif
+						</div>
 
                         <div class="form-group  mb-3">
                             <button type="submit" class="btn btn-primary btn-block">{{ __('Register') }}</button>
