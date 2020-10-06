@@ -57,6 +57,12 @@
                                     @endforeach
                                 </ul>
                                 @php  $type = "words";  @endphp
+                            @elseif( $item->key == 'shipping')
+                                {!! $item->value  !!}
+                                @php  $type = "shipping";  @endphp
+                            @elseif( $item->key == 'address' || $item->key == 'phone' || $item->key == 'email')
+                                {!! $item->value  !!}
+                                @php  $type = "footer";  @endphp
                             @else
                                 {!! $item->value  !!}
                                 @php  $type = "text";  @endphp

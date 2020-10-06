@@ -11,6 +11,7 @@ Route::get('/parties', 'PartyController@index')->name('party');
 
 Route::get('/products', 'ProductController@index')->name('products');
 Route::get('/add-to-cart', 'ProductController@addToCart')->name('add.cart');
+Route::get('/remove/{item}/cart', 'ProductController@removeFromCart')->name('delete.item');
 Route::post('/create-order', 'ProductController@CreateOrder')->name('create.order');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');

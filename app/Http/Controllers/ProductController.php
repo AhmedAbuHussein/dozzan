@@ -54,4 +54,10 @@ class ProductController extends Controller
         return redirect()->back()->with(['message'=> 'Your Order Created Successfully', 'icon'=>'success']);
     }
 
+
+    public function removeFromCart($item)
+    {
+        \Cart::remove($item);
+        return redirect()->back()->with(['message'=> "Item Removed From Cart", 'icon'=> 'success']);
+    }
 }

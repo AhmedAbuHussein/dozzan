@@ -42,6 +42,12 @@ class SettingController extends Controller
         }else if($type == 'social'){
             $this->validate($request, ['value'=>'required|array']);
             $setting->update(['value'=> $request->value]);
+        }else if($type == 'shipping'){
+            $this->validate($request, ['value'=>'required|numeric']);
+            $setting->update(['value'=> $request->value]);
+        }else if($type == 'footer'){
+            $this->validate($request, ['value'=>'required|string']);
+            $setting->update(['value'=> $request->value]);
         }
         
         cache()->forget('SETTING');

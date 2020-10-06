@@ -51,17 +51,17 @@
                             <h3>Contact Us</h3>
                             <p>
                                 <i class="fa fa-map-signs" aria-hidden="true"></i>
-                                <span>6 E Esplanade, St Albans VIC 3021, Australia</span>
+                                <span>{{ optional($setting->where('key', 'address')->first())->value }}</span>
                             </p>
                             <p>
                                 <i class="fa fa-mobile" aria-hidden="true"></i>
                                 <span>
-                                +91 80005 89080
-                            </span>
+                                    {{ optional($setting->where('key', 'phone')->first())->value }}
+                                </span>
                             </p>
                             <p>
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <span><a href="#">support@foodfunday.com</a></span>
+                                <span><a href="mailto:{{ optional($setting->where('key', 'email')->first())->value }}">{{ optional($setting->where('key', 'email')->first())->value }}</a></span>
                             </p>
                         </div>
                         <!-- end footer-box-c -->
@@ -71,16 +71,7 @@
                         <div class="footer-box-d">
                             <h3>Opening Hours</h3>
 
-                            <ul>
-                                <li>
-                                    <p>Monday - Thursday </p>
-                                    <span> 11:00 AM - 9:00 PM</span>
-                                </li>
-                                <li>
-                                    <p>Friday - Saturday </p>
-                                    <span>  11:00 AM - 5:00 PM</span>
-                                </li>
-                            </ul>
+                            {!! optional($setting->where('key', 'opening_houres')->first())->value !!}
                         </div>
                         <!-- end footer-box-d -->
                     </div>

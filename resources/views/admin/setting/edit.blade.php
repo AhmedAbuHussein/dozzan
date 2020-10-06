@@ -143,8 +143,26 @@
                                  @enderror
                             </div>
                             
-
-
+                            @elseif($type == 'shipping')
+                                <div class="form-group col-md-6 offset-md-3">
+                                    <label for="value">{{ __('Value') }}</label>
+                                    <input type="number" min="0" name="value" id="value" value="{{ old('value')??$setting->value }}" class="form-control" placeholder="Shipping cost" required>
+                                    @error('value')
+                                    <span class="text-danger">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            @elseif($type == 'footer')
+                                <div class="form-group col-md-6 offset-md-3">
+                                    <label for="value">{{ __('Value') }}</label>
+                                    <input type="text" name="value" id="value" value="{{ old('value')??$setting->value }}" class="form-control" placeholder="Contacted Email" required>
+                                    @error('value')
+                                    <span class="text-danger">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
                             @else
                                 <div class="form-group col-md-6 offset-md-3">
                                     <label for="txt-editor">{{ __('Value') }}</label>

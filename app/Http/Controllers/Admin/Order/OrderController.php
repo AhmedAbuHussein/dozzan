@@ -17,8 +17,7 @@ class OrderController extends Controller
 
     public function show(Order $order)
     {
-        $products = Product::whereIn('id', $order->items)->get();
-        return view('admin.order.show', compact('order', 'products'));
+        return view('admin.order.show', compact('order'));
     }
 
     public function edit(Order $order)

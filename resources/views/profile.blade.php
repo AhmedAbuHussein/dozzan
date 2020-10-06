@@ -119,12 +119,13 @@
                                         <div class="name">
                                             <p>{{ $item->name }}</p>
                                         </div>
-                                        <div class="quantity">
-                                            <p>Quantity: {{ $item->quantity }}</p>
-                                        </div>
                                         <div class="line-65">
                                             <p>Price: {{ $item->price . ' $' }}</p>
                                         </div>
+                                        <div class="line-65">
+                                            <a href="{{ route('delete.item', ['item'=>$item->id]) }}" class="btn btn-danger">{{ __('Del') }}</a>
+                                        </div>
+
                                     </li>
                                     @empty
                                     <li class="list-group-item">Sorry, You do not has Any product in you cart</li>
@@ -169,21 +170,10 @@
                                                 <td>{{ (double)$order->price + (double)$order->shipping }}</td> 
                                                 <td><span>{{ $order->status }}</span></td>
                                                 <td>
-                                                    <ul class="list-unstyled">
-                                                        @foreach (Facades\App\Repository\Product::all('created_at')->whereIn('id', $order->items) as $item)
-                                                        <li class="list-group-item d-flex justify-content-start">
-                                                            <div class="image">
-                                                                <img src="{{ url($item->image) }}" style="width: 65px; height:65px; border-radius: 100%; padding: 5px; background: #fff" />
-                                                            </div>
-                                                            <div class="name">
-                                                                <p>{{ $item->name }}</p>
-                                                            </div>
-                                                            <div class="line-65">
-                                                                <p>{{ $item->price . ' $' }}</p>
-                                                            </div>
-                                                        </li>
-                                                        @endforeach    
-                                                    </ul>    
+                                                    @foreach ($order->items as $id)
+                                                    <?php $item = Facades\App\Repository\Product::all('created_at')->where('id', $id)->first();  ?>
+                                                    <img src="{{ url($item->image) }}" style="width: 50px; height:50px; border-radius: 100%; padding: 5px; background: #fff" title="{{ $item->name ." | ". $item->price." $"}}" />
+                                                    @endforeach    
                                                 </td>   
                                             </tr>
                                         @empty
@@ -216,5 +206,6 @@
         $(function() {
             $('#table').DataTable();
         });
+
     </script>
 @endsection

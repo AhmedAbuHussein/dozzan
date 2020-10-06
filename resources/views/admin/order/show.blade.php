@@ -32,6 +32,11 @@
                 </div>
 
                 <div class="row py-3" style="border-bottom: 1px solid #ddd">
+                    <div class="col-md-4">{{ __('Phone') }}</div>
+                    <div class="col-md-8">{{ $order->user->phone }}</div>
+                </div>
+
+                <div class="row py-3" style="border-bottom: 1px solid #ddd">
                     <div class="col-md-4">{{ __('Shipping') }}</div>
                     <div class="col-md-8">{{ $order->shipping }}</div>
                 </div>
@@ -55,7 +60,8 @@
                     <div class="col-md-4">{{ __('Product') }}</div>
                     <div class="col-md-8">
                         <ul class="list-unstyled">
-                            @foreach ($products as $item)
+                            @foreach ($order->items as $id)
+                            <?php $item = Facades\App\Repository\Product::all('created_at')->where('id', $id)->first(); ?>
                                 <li class="list-group-item d-flex justify-content-start">
                                     <div class="image">
                                         <img src="{{ url($item->image) }}" style="width: 65px; height:65px; border-radius: 100%; padding: 5px; background: #fff" />

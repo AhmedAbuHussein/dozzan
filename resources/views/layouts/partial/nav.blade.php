@@ -27,7 +27,6 @@
                                 <li><a href="#our_team">Team</a></li>
                                 <li><a href="#gallery">Products</a></li>
                                 <li><a href="#blog">Parties</a></li>
-                                <li><a href="#reservation">Reservaion</a></li>
                                 @else
                                 <li class="{{ Illuminate\Support\Facades\Route::currentRouteName() == 'party'?'active':'' }}"><a href="{{ route('party') }}">Parties</a></li>
                                 <li class="{{ Illuminate\Support\Facades\Route::currentRouteName() == 'products'?'active':'' }}"><a href="{{ route('products') }}">Products</a></li>
