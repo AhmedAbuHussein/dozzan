@@ -42,7 +42,6 @@ class ProductController extends Controller
         if($request->has('image')){
             $path = public_path($name);
             if(is_file($path)){
-                
                 unlink($path);
             }
             $name = time().'.'.$request->file('image')->getClientOriginalExtension();
@@ -90,6 +89,10 @@ class ProductController extends Controller
 
     public function destroy(AppProduct $product)
     {
+        $image = public_path($product->image);
+        if(is_file($image)){
+            unlink($image);
+        }
         $product->delete();
         cache()->forget('CATEGORY.ALL.SORT');
         cache()->forget('PRODUCT.ALL.CREATED_AT');

@@ -89,6 +89,10 @@ class PartyController extends Controller
 
     public function destroy(Party $party)
     {
+        $image = public_path($party->image);
+        if(is_file($image)){
+            unlink($image);
+        }
         $party->delete();
         return redirect()->route('admin.parties.index')->with(['message'=> 'Party Deleted Successfully', 'icon'=>'success']);
     }

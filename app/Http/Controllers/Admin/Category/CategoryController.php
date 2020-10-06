@@ -64,6 +64,14 @@ class CategoryController extends Controller
 
     public function destroy(AppCategory $category)
     {
+        $products = $category->products;
+        foreach ($products as $product) {
+            $image = public_path($product->image);
+            if(is_file($image)){
+                unlink($image);
+            }
+            $product->delete();
+        }
         $category->delete();
         cache()->forget('CATEGORY.ALL.SORT');
         cache()->forget('PRODUCT.ALL.CREATED_AT');

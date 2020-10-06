@@ -78,6 +78,11 @@ class TeamController extends Controller
 
     public function destroy(Team $employee)
     {
+        $image = public_path($employee->image);
+        if(is_file($image))
+        {
+            unlink($image);
+        }
         $employee->delete();
         return redirect()->back()->with(['message'=> "Employee deleted Successfully", 'icon'=>'success']);
     }
