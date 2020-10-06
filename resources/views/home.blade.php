@@ -23,6 +23,20 @@
     .title-custom.p-white>p{
         color: #fff;
     }
+    .gal-item .box{
+        height: 245px;
+    }
+    .gal-container .modal-dialog{
+        width: 30%;
+    }
+    body:not(.modal-open){
+        padding-right: 0 !important;
+    }
+    .gal-container .description{
+        height: 95px;
+        top: -95px;
+        overflow: hidden;
+    }
     </style>
 @endsection
 @section('content')
@@ -62,7 +76,7 @@
                 <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title"> About Us </h2>
                     <h3>{!! optional($setting->where('key', 'about_header')->first())->value !!}</h3>
-                    <p>{!! optional($setting->where('key', 'about_desc')->first())->value !!}</p> 
+                    <p>{!! optional($setting->where('key', 'about_desc')->first())->value !!}</p>
                 </div>
             </div>
             <!-- end col -->
@@ -128,7 +142,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="wow fadeIn title-custom" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title text-center">
-                        Our Menu 	
+                        Our Menu
                     </h2>
                     {!! optional($setting->where('key','menu_desc')->first())->value !!}
                 </div>
@@ -147,7 +161,7 @@
                     <div class="slider slider-single">
                         @foreach ($cats as $category)
                         <div>
-                            @foreach ($category->products as $product)
+                            @foreach ($category->products->take(4) as $product)
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                                 <div class="offer-item">
                                     <img src="{{ $product->image }}" alt="" class="img-responsive">
@@ -181,7 +195,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="wow fadeIn title-custom p-white" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title text-center">
-                    Our Team 	
+                    Our Team
                 </h2>
                     {!! optional($setting->where('key', 'team_desc')->first())->value !!}
                 </div>
@@ -207,7 +221,7 @@
                         </div>
                         <!-- end col -->
                         @endforeach
-                        
+
                     </div>
                     <!-- end row -->
 
@@ -229,12 +243,12 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title text-center">
-                    Our Gallery	
+                    Our Products
                 </h2>
                     <div class="title-custom">{!! optional($setting->where('key', 'gallery_desc')->first())->value !!}</div>
                 </div>
                 <div class="gal-container clearfix">
-                    @foreach ($products as $key=>$product)
+                    @foreach ($products->random(8) as $key=>$product)
                     <div class="col-md-3 col-sm-6 co-xs-12 gal-item">
                         <div class="box">
                             <a href="#" data-toggle="modal" data-target="#product-{{ ($key+1) }}">
@@ -256,9 +270,13 @@
                         </div>
                     </div>
                     @endforeach
-                
+
                 </div>
                 <!-- end gal-container -->
+
+                <div class="blog-btn-v">
+                    <a class="hvr-underline-from-center" href="{{ route('products') }}">Show All</a>
+                </div>
             </div>
             <!-- end col -->
         </div>
@@ -273,7 +291,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h2 class="block-title text-center">
-                Our Parties	
+                Our Parties
             </h2>
                 <div class="blog-box clearfix">
                     @foreach ($parties as $party)
@@ -281,7 +299,7 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="blog-block">
                                     <div class="blog-img-box">
-                                        <img src="{{ $party->image }}" alt="" />
+                                        <img src="{{ $party->image }}" style="width: 270px; height: 270px;" alt="" />
                                         <div class="overlay">
                                             <a href="{{ $party->link ?? '/' }}"><i class="fa fa-link" aria-hidden="true"></i></a>
                                         </div>
@@ -404,7 +422,7 @@
                     <!-- end form -->
 
                     @endguest
-                    
+
                 </div>
                 <!-- end col -->
             </div>

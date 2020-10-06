@@ -1,5 +1,5 @@
 <div id="footer" class="footer-main">
-    
+
     <div class="footer-box pad-top-70">
         <div class="container">
             <div class="row">
@@ -12,10 +12,13 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="footer-box-a">
                             <h3>About Us</h3>
-                            <p>{!! optional($setting->where('key', 'about_desc')->first())->value !!}</p>
+                            <div class="" style="max-height: 212px; overflow: hidden">
+                                {!! optional($setting->where('key', 'about_desc')->first())->value !!}
+                            </div>
+
                             <ul class="socials-box footer-socials pull-left">
                                 @php
-                                    $links = optional($setting->where('key', 'social_links')->first()); 
+                                    $links = optional($setting->where('key', 'social_links')->first());
                                 @endphp
                                 @foreach (json_decode($links->value) as $key=>$link)
                                 <li>
@@ -37,7 +40,7 @@
                                 @foreach ($categories->random(5) as $item)
                                 <li><a href="#menu">{{ $item->name }}</a></li>
                                 @endforeach
-                                
+
                             </ul>
                         </div>
                         <!-- end footer-box-b -->
@@ -53,7 +56,7 @@
                             <p>
                                 <i class="fa fa-mobile" aria-hidden="true"></i>
                                 <span>
-                                +91 80005 89080 
+                                +91 80005 89080
                             </span>
                             </p>
                             <p>

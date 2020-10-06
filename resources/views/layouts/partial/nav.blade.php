@@ -20,14 +20,22 @@
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
-                                <li class="active"><a href="#banner">Home</a></li>
+                                <li class="{{ Illuminate\Support\Facades\Route::currentRouteName() == 'home'?'active':'' }}"><a href="{{ route('home') }}">Home</a></li>
+                                @if (Illuminate\Support\Facades\Route::currentRouteName() == 'home')
                                 <li><a href="#about">About us</a></li>
                                 <li><a href="#menu">Menu</a></li>
                                 <li><a href="#our_team">Team</a></li>
-                                <li><a href="#gallery">Gallery</a></li>
-                                <li><a href="#blog">Blog</a></li>
-                                @auth
+                                <li><a href="#gallery">Products</a></li>
+                                <li><a href="#blog">Parties</a></li>
                                 <li><a href="#reservation">Reservaion</a></li>
+                                @else
+                                <li class="{{ Illuminate\Support\Facades\Route::currentRouteName() == 'party'?'active':'' }}"><a href="{{ route('party') }}">Parties</a></li>
+                                <li class="{{ Illuminate\Support\Facades\Route::currentRouteName() == 'products'?'active':'' }}"><a href="{{ route('products') }}">Products</a></li>
+                                @endif
+                                
+
+                                @auth
+                                <li class="{{ Illuminate\Support\Facades\Route::currentRouteName() == 'profile'?'active':'' }}"><a href="{{ route('profile') }}">Profile</a></li>
                                 @endauth
                                 <li><a href="#footer">Contact us</a></li>
                                 @guest

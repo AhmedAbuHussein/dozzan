@@ -9,6 +9,12 @@ Route::redirect('/home', '/');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/parties', 'PartyController@index')->name('party');
 
+Route::get('/products', 'ProductController@index')->name('products');
+Route::get('/add-to-cart', 'ProductController@addToCart')->name('add.cart');
+Route::post('/create-order', 'ProductController@CreateOrder')->name('create.order');
+
+Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::post('/profile', 'ProfileController@update')->name('edit.profile');
 
 # Admin Authantication Routes
 Route::group(['namespace'=> 'Admin', 'prefix'=> 'admin', 'as'=> 'admin.'], function(){

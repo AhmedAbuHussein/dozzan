@@ -37,7 +37,7 @@ class OrderController extends Controller
             'status'=> $request->status,
             'shipping' => $request->shipping,
         ]);
-        return redirect()->route('admin.order.index')->with(['message'=> 'Order Status Updated Successfully', 'icon'=>'success']);
+        return redirect()->route('admin.orders.index')->with(['message'=> 'Order Status Updated Successfully', 'icon'=>'success']);
     }
 
 }

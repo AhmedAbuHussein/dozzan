@@ -9,7 +9,7 @@
                     <div class="d-flex justify-content-center mb-3">
                         <a href="{{ route('home') }}"><img src="{{ url('images/logo.png') }}" alt="logo" style="width: 150px;" /></a>
                     </div>
-					{!! NoCaptcha::renderJs() !!}
+
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -60,14 +60,14 @@
                             <label for="password-confirm">{{ __('Confirm Password') }}</label>
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                         </div>
-						
+
 						 <div class="form-group ">
 						{!! NoCaptcha::display() !!}
 						@error('g-recaptcha-response')
 							<span class="help-block">
 								<strong>{{ $message }}</strong>
 							</span>
-						@endif
+						@enderror
 						</div>
 
                         <div class="form-group  mb-3">
@@ -79,4 +79,16 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+    {!! NoCaptcha::renderJs() !!}
+    <script>
+        window.onload = function() {
+            var $recaptcha = document.querySelector('#g-recaptcha-response');
+            if($recaptcha) {
+                $recaptcha.setAttribute("required", "required");
+            }
+        };
+    </script>
+
 @endsection

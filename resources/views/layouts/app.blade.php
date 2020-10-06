@@ -30,7 +30,9 @@
 
     <!-- Modernizer -->
     <script src="{{ url('js/modernizer.js') }}"></script>
+    <link href="{{ url('css/datatables.min.css') }}" rel="stylesheet">
 
+    
     @yield('style')
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -49,6 +51,21 @@
     </div>
     <script src="{{ url('js/app.js') }}" ></script>
     @include('layouts.partial.scripts')
-    
+    @yield('script')
+    @if (\Session::has('message'))
+
+    <script>
+        $(function() {
+
+            swal({
+                text:"{{ \Session::pull('message') }}",
+                icon:"{{ \Session::pull('icon') }}"
+            });
+
+        })
+        
+    </script>
+        
+    @endif
 </body>
 </html>
