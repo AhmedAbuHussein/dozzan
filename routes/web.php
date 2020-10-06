@@ -98,6 +98,12 @@ Route::group(['namespace'=> 'Admin', 'prefix'=> 'admin', 'as'=> 'admin.'], funct
             Route::post('/{setting}/edit/{type}', 'SettingController@update');
         });
 
+         # Settings Routes
+         Route::group(['namespace'=>'Profile', 'prefix'=>'profile', 'as'=>'profile.'], function() {
+            Route::get('/', 'AdminProfileController@index')->name('index');
+            Route::post('/update', 'AdminProfileController@update')->name('update');
+        });
+
     });
 
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('logout');

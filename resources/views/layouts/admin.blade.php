@@ -203,6 +203,13 @@
                                 <span class="hide-menu">{{ __('Setting') }}</span>
                             </a>
                         </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('admin.profile.index') }}" aria-expanded="false">
+                                <i class="mdi mdi-adjust"></i>
+                                <span class="hide-menu">{{ __('Profile') }}</span>
+                            </a>
+                        </li>
                         
 
                     </ul>
