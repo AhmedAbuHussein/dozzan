@@ -51,7 +51,7 @@
                         {!! optional($setting->where('key', 'banner_header_two')->first())->value !!}
                         {!! optional($setting->where('key', 'banner_desc')->first())->value !!}
                         <div class="book-btn">
-                            <a href="#reservation" class="table-btn hvr-underline-from-center">Book my Table</a>
+                            <a href="#reservation" class="table-btn hvr-underline-from-center">{{ __('file.BOOK MY TABLE') }}</a>
                         </div>
                         <a href="#about">
                             <div class="mouse"></div>
@@ -74,7 +74,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                    <h2 class="block-title"> About Us </h2>
+                    <h2 class="block-title"> {{ __('file.About Us') }} </h2>
                     <h3>{!! optional($setting->where('key', 'about_header')->first())->value !!}</h3>
                     <p>{!! optional($setting->where('key', 'about_desc')->first())->value !!}</p>
                 </div>
@@ -100,7 +100,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                    <h2 class="block-title color-white text-center"> Today's Special </h2>
+                    <h2 class="block-title color-white text-center"> {{ __("file.Today's Special") }} </h2>
                     @php
                         $special = $categories->where('name', 'special')->first();
                     @endphp
@@ -142,7 +142,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="wow fadeIn title-custom" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title text-center">
-                        Our Menu
+                        {{ __('file.Our Menu') }}
                     </h2>
                     {!! optional($setting->where('key','menu_desc')->first())->value !!}
                 </div>
@@ -165,9 +165,9 @@
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                                 <div class="offer-item">
                                     <img src="{{ $product->image }}" alt="" class="img-responsive">
-                                    <div>
+                                    <div style="overflow: hidden">
                                         <h3 style="text-transform: uppercase">{{ $product->name }}</h3>
-                                        <p>{!! $product->details !!}</p>
+                                            <p class="line-2">{!! $product->details !!}</p>
                                     </div>
                                     <span class="offer-price">{{ $product->price }}</span>
                                 </div>
@@ -176,7 +176,6 @@
                             @endforeach
                         </div>
                         @endforeach
-
                     </div>
                 </div>
                 <!-- end tab-menu -->
@@ -195,7 +194,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="wow fadeIn title-custom p-white" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title text-center">
-                    Our Team
+                   {{ __('file.Our Team') }}
                 </h2>
                     {!! optional($setting->where('key', 'team_desc')->first())->value !!}
                 </div>
@@ -209,7 +208,7 @@
                                     <a href="#"><img src="{{ $item->image }}" alt=""></a>
                                 </div>
                                 <div class="text-col">
-                                    <h3 style="text-transform: capitalize">{{ $item->name }}}</h3>
+                                    <h3 style="text-transform: capitalize">{{ $item->name }}</h3>
                                     <p>{{ $item->details }}</p>
                                     <ul class="team-social">
                                         <li><a href="{{ $item->facebook??'/' }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -243,7 +242,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title text-center">
-                    Our Products
+                    {{ __('file.Our Products') }}
                 </h2>
                     <div class="title-custom">{!! optional($setting->where('key', 'gallery_desc')->first())->value !!}</div>
                 </div>
@@ -275,7 +274,7 @@
                 <!-- end gal-container -->
 
                 <div class="blog-btn-v">
-                    <a class="hvr-underline-from-center" href="{{ route('products') }}">Show All</a>
+                    <a class="hvr-underline-from-center white-bg" href="{{ route('products') }}">{{ __('file.Show All') }}</a>
                 </div>
             </div>
             <!-- end col -->
@@ -291,7 +290,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h2 class="block-title text-center">
-                Our Parties
+                {{ __('file.Our Parties') }}
             </h2>
                 <div class="blog-box clearfix">
                     @foreach ($parties as $party)
@@ -318,7 +317,7 @@
                 <!-- end blog-box -->
 
                 <div class="blog-btn-v">
-                    <a class="hvr-underline-from-center" href="{{ route('party') }}">All Parties</a>
+                    <a class="hvr-underline-from-center" href="{{ route('party') }}">{{ __('file.Show All') }}</a>
                 </div>
 
             </div>
@@ -337,11 +336,92 @@
             <div class="form-reservations-box">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                        <h2 class="block-title text-center">Reservations</h2>
+                        <h2 class="block-title text-center">{{ __('file.Reservations') }}</h2>
                     </div>
-                    <h4 class="form-title">BOOKING TABLES</h4>
-                    <p>YOU CAN RESERVE A TABLES JUST CONTACT US </p>
-                    
+                    <h4 class="form-title">{{ __('file.BOOKING TABLES') }}</h4>
+                    <p>{{ __('file.YOU CAN RESERVE A TABLES OR ROOM') }} @guest <a href="{{ route('login') }}">{{ __('file.JUST LOGIN') }}</a> @endguest</p>
+                    @auth
+                    <form action="{{ route('reservation') }}" method="POST" class="reservations-box">
+                        @csrf
+                        <div class="row">
+                           <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">{{ __('file.Name') }}</label>
+                                    <input type="text" value="{{ old('name') }}" name="name" placeholder="{{ __('file.Your Name') }}" class="form-control" required autofocus />
+                                    @error('name')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                           </div>
+
+                           <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone">{{ __('file.Phone') }}</label>
+                                    <input type="text" value="{{ old('phone') }}" name="phone" placeholder="{{ __('file.Your phone') }}" class="form-control" required />
+                                    @error('phone')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                 <div class="form-group">
+                                     <label for="date-picker">{{ __('file.Reservation Date') }}</label>
+                                     <input type="text" value="{{ old('date') }}" name="date" id="date-picker" placeholder="{{ __('file.Reservation Date') }}" class="form-control" required />
+                                     @error('date')
+                                         <div class="text-danger">{{ $message }}</div>
+                                     @enderror
+                                 </div>
+                            </div>
+ 
+                            <div class="col-md-6">
+                                 <div class="form-group">
+                                     <label for="time-picker">{{ __('file.Reservation Time') }}</label>
+                                     <input type="text" value="{{ old('time') }}" id="time-picker" name="time" placeholder="{{ __('file.Reservation Time') }}" class="form-control" required />
+                                     @error('time')
+                                         <div class="text-danger">{{ $message }}</div>
+                                     @enderror
+                                 </div>
+                             </div>
+                         </div>
+
+                         <div class="row">
+                            <div class="col-md-6">
+                                 <div class="form-group">
+                                     <label for="person">{{ __('file.Persons No.') }}</label>
+                                     <input type="number" value="{{ old('persons') }}" name="persons" id="person" placeholder="{{ __('file.Person No.') }}" class="form-control" required />
+                                     @error('persons')
+                                         <div class="text-danger">{{ $message }}</div>
+                                     @enderror
+                                 </div>
+                            </div>
+ 
+                            <div class="col-md-6">
+                                 <div class="form-group">
+                                     <label for="selectpicker">{{ __('file.Reservation Type') }}</label>
+                                     <select name="type" id="selectpicker" required class="selectpicker form-control">
+                                         <option value="">{{ __('file.Select') }}</option>
+                                        <option value="table">{{ _('Table') }}</option>
+                                        <option value="room">{{ _('Room') }}</option>
+                                    </select>
+                                     @error('type')
+                                         <div class="text-danger">{{ $message }}</div>
+                                     @enderror
+                                 </div>
+                             </div>
+                         </div>
+
+
+                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="reserve-book-btn text-center">
+                                <button class="hvr-underline-from-center" type="submit" value="SEND" id="submit">{{ __('file.BOOK MY TABLE') }} </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    @endauth
                 </div>
                 <!-- end col -->
             </div>

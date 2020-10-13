@@ -86,8 +86,8 @@
            <div class="col-md-3">
                 <div class="box">
                     <i class="fa fa-list"></i>
-                    <span>{{ $categories }}</span>
-                    <a href="{{ route('admin.categories.index') }}">{{ __('Categories') }}</a>
+                    <span>{{ $reservation }}</span>
+                    <a href="{{ route('admin.reservation.index') }}">{{ __('Reservation') }}</a>
                 </div>
             </div>
             <div class="col-md-3">

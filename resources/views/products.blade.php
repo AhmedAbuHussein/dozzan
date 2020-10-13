@@ -57,11 +57,11 @@
                                     </div>
                                     @auth
                                         <div class="custom-footer">
-                                            <button data-id="{{ $item->id }}" class="btn btn-block {{ $loop->odd?'btn-success':'btn-danger' }} cart-btn">Add To Cart</button>
+                                            <button data-id="{{ $item->id }}" class="btn btn-block {{ $loop->odd?'btn-success':'btn-danger' }} cart-btn">Add To Cart <span>( {{ $item->price . ' SAR' }} )</span></button>
                                         </div>
                                     @else
                                     <div class="custom-footer">
-                                        <a href="{{ route('login') }}" class="btn btn-block {{ $loop->odd?'btn-success':'btn-danger' }}">Add To Cart</a>
+                                        <a href="{{ route('login') }}" class="btn btn-block {{ $loop->odd?'btn-success':'btn-danger' }}">Add To Cart <span>( {{ $item->price . ' SAR' }} )</span></a>
                                     </div>
                                     @endauth
                                     

@@ -9,6 +9,8 @@ Route::redirect('/home', '/');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/parties', 'PartyController@index')->name('party');
 
+
+
 Route::get('/products', 'ProductController@index')->name('products');
 Route::group(['middleware'=> 'auth:web'], function() {
     Route::get('/add-to-cart', 'ProductController@addToCart')->name('add.cart');
@@ -16,6 +18,8 @@ Route::group(['middleware'=> 'auth:web'], function() {
     Route::post('/create-order', 'ProductController@CreateOrder')->name('create.order');
     Route::get('/profile', 'ProfileController@index')->name('profile');
     Route::post('/profile', 'ProfileController@update')->name('edit.profile');
+
+    Route::post('/reservation', 'ReservationController@store')->name('reservation');
 });
 
 
@@ -66,6 +70,15 @@ Route::group(['namespace'=> 'Admin', 'prefix'=> 'admin', 'as'=> 'admin.'], funct
             Route::get('{order}/show', 'OrderController@show')->name('show');
             Route::get('{order}/edit', 'OrderController@edit')->name('edit');
             Route::post('{order}/edit', 'OrderController@update');
+        });
+
+
+        # Orders Routes
+        Route::group(['namespace'=>'Reservation', 'prefix'=>'reservation', 'as'=>'reservation.'], function() {
+            Route::get('/', 'ReservationController@index')->name('index');
+            Route::get('{reservation}/show', 'ReservationController@show')->name('show');
+            Route::get('{reservation}/edit', 'ReservationController@edit')->name('edit');
+            Route::post('{reservation}/edit', 'ReservationController@update');
         });
 
          # Parties Routes

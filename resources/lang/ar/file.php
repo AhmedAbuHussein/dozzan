@@ -1,0 +1,38 @@
+<?php
+
+return [
+
+    'BOOK MY TABLE' => 'احجز طاولتك',
+    'About Us' => 'عن الموقع',
+    "Today's Special"=> "الخاص لليوم",
+    "Our Menu"=>"القائمة",
+    "Our Parties"=>"حفلاتنا",
+    "Our Team"=>"فريق العمل",
+    "Our Products"=>"منتجاتنا",
+    "Show All"=>"رؤية الجميع",
+    "Reservations"=>"الحجز",
+    "BOOKING TABLES"=>"حجز طاولة",
+    "YOU CAN RESERVE A TABLES OR ROOM"=>"يمكنك حجز طاولة او غرفة",
+    "JUST LOGIN"=>"بعد تسجيل الدخول",
+    "Name"=>"الاسم",
+    "Your Name"=>"حجز بإسم",
+    "Phone"=>"الهاتف الجوال",
+    "Your phone"=>"رقم الهاتف الجوال",
+    "Reservation Date"=>"متي تريد الحجز",
+    "Reservation Time"=>"وقت الحجز",
+    "Persons No."=>"عدد الاشخاص",
+    "Reservation Type"=>"نوع الحجز",
+    "Select"=>"اختار",
+    "Table"=>"طاولة",
+    "Room"=>"غرفة",
+    "Home"=>"الرئيسية",
+    "Menu"=> "القائمة",
+    "Team"=>"الفريق",
+    "Products"=>"المنتجات",
+    "Parties"=>"الحفلات",
+    "Profile"=>"الشخصية",
+    "Login"=>"تسجيل الدخول",
+    "logout"=> "تسجيل الخروج",
+    "Contact us"=>"تواصل معنا",
+
+];

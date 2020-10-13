@@ -31,7 +31,7 @@
     <!-- Modernizer -->
     <script src="{{ url('js/modernizer.js') }}"></script>
     <link href="{{ url('css/datatables.min.css') }}" rel="stylesheet">
-
+    <link href="{{ url('css/arabic.css') }}" rel="stylesheet" />
     
     @yield('style')
     <!--[if lt IE 9]>

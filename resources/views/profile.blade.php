@@ -189,6 +189,42 @@
                     </div>
                      <!-- end row 2 -->
 
+
+                     <div class="row" style="margin-top: 30px;">
+                        <div class="col-md-12">
+                             <div class="content" style="background: #2f2f2f; padding:20px;border-radius: 5px;">
+                                 <table id="table2" class="table table-striped table-hover">
+                                     <thead>
+                                         <tr>
+                                            <th>{{ __('Date Time') }}</th>
+                                             <th>{{ __('Reservation Name') }}</th>
+                                             <th>{{ __('Persons No.') }}</th>
+                                             <th>{{ __('Reservation Type') }}</th>
+                                             <th>{{ __('Reservation Status') }}</th>
+                                         </tr>
+                                     </thead>
+                                     <tbody>
+                                         @forelse ($reservation as $item)
+                                             <tr>
+                                                 <td>{{ $item->date . ' - '. $item->time }}</td>
+                                                 <td>{{ $item->name }}</td>
+                                                 <td>{{ $item->persons }}</td>
+                                                 <td>{{ $item->type }}</td>
+                                                 <td>{{ $item->status }}</td>
+                                             </tr>
+                                         @empty
+                                         <tr>
+                                             <td colspan="4" style="text-align: center; padding:10px;">Sorry, You Dont Have Any Reservation Yet</td>
+                                         </tr>
+                                             
+                                         @endforelse
+                                     </tbody>
+                                 </table>
+                             </div>
+                        </div>
+                     </div>
+                      <!-- end row 3 -->
+
                 </div>
                 <!-- end gal-container -->
             </div>
@@ -204,7 +240,15 @@
 @section('script')
     <script>
         $(function() {
-            $('#table').DataTable();
+            try {
+                $('#table').DataTable();
+            } catch (error) {}
+            
+            try {
+                $('#table2').DataTable();
+            } catch (error) {
+                
+            }
         });
 
     </script>

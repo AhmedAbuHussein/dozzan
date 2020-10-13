@@ -184,6 +184,13 @@
                         </li>
 
                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('admin.reservation.index') }}" aria-expanded="false">
+                                <i class="mdi mdi-adjust"></i>
+                                <span class="hide-menu">{{ __('Reservation') }}</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('admin.parties.index') }}" aria-expanded="false">
                                 <i class="mdi mdi-database"></i>
                                 <span class="hide-menu">{{ __('Parties') }}</span>

@@ -7,7 +7,7 @@ use Facades\App\Repository\Category;
 use Facades\App\Repository\Setting;
 use Illuminate\Http\Request;
 
-class partyController extends Controller
+class PartyController extends Controller
 {
     public function index()
     {

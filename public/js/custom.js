@@ -208,7 +208,7 @@
 			return false;
 		});
 
-		jQuery(".strong-blue-bg").on('click',function(){
+		jQuery(".strong-silver-bg").on('click',function(){
 			jQuery(".logo-header img").attr("src", "images/logo2.png");
 			jQuery(".footer-logo .text-center img").attr("src", "images/logo2.png");
 			return false;

@@ -107,8 +107,7 @@
     <div class="segment">
         <h4 class="gray2 normal no-padding">Color Scheme</h4>
         <a title="orange" class="switcher orange-bg"></a>
-        <a title="strong-blue" class="switcher strong-blue-bg"></a>
-        <a title="moderate-green" class="switcher moderate-green-bg"></a>
+        <a title="strong-blue" class="switcher strong-silver-bg"></a>
         <a title="vivid-yellow" class="switcher vivid-yellow-bg"></a>
     </div>
 </section>

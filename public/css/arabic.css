@@ -1,0 +1,47 @@
+#banner {
+    direction: rtl;
+}
+
+#about {
+    direction: rtl;
+    text-align: right;
+}
+
+#menu .offer-item{
+    direction: rtl;
+}
+#menu .offer-item img{
+    float: right;
+    margin-right: 7px;
+}
+#menu .offer-item div{
+    float: right;
+}
+
+#menu .offer-item .offer-price{
+    right: auto;
+    left: 6px;
+}
+#reservation{
+    direction: rtl;
+    text-align: right;
+}
+
+.footer-in-main{
+    direction: rtl;
+    text-align: right;
+}
+.footer-box-c p i{
+    float: right;
+    margin-left: 10px;
+}
+.socials-box{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    text-align: right;
+}
+.socials-box li{
+    margin-left: 7px;
+    margin-right: 0;
+}

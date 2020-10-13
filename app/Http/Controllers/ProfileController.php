@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Reservation;
 use App\User;
 use Facades\App\Repository\Product;
 use Facades\App\Repository\Category;
@@ -23,7 +24,8 @@ class ProfileController extends Controller
         $items = \Cart::getContent();
         $total = \Cart::getTotal();
         $orders = Order::where('user_id', $user->id)->orderBy('updated_at', 'DESC')->get();
-        return view('profile', compact('user', 'items', 'total', 'orders', 'setting', 'categories'));
+        $reservation = Reservation::where('user_id', $user->id)->get();
+        return view('profile', compact('user', 'items', 'total', 'orders', 'setting', 'categories', 'reservation'));
     }
 
     public function update(Request $request)

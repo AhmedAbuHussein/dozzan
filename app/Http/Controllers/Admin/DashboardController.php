@@ -5,6 +5,7 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use App\Order;
 use App\Product;
+use App\Reservation;
 use App\User;
 
 class DashboardController extends Controller {
@@ -15,6 +16,7 @@ class DashboardController extends Controller {
         $products = Product::count();
         $categories = Category::count();
         $orders = Order::count();
-        return view('admin.index', compact('users', 'products', 'categories', 'orders'));
+        $reservation = Reservation::count();
+        return view('admin.index', compact('users', 'products', 'categories', 'orders', 'reservation'));
     }
 }

@@ -20,31 +20,31 @@
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
-                                <li class="{{ Illuminate\Support\Facades\Route::currentRouteName() == 'home'?'active':'' }}"><a href="{{ route('home') }}">Home</a></li>
+                                <li class="{{ Illuminate\Support\Facades\Route::currentRouteName() == 'home'?'active':'' }}"><a href="{{ route('home') }}">{{ __('file.Home') }}</a></li>
                                 @if (Illuminate\Support\Facades\Route::currentRouteName() == 'home')
-                                <li><a href="#about">About us</a></li>
-                                <li><a href="#menu">Menu</a></li>
-                                <li><a href="#our_team">Team</a></li>
-                                <li><a href="#gallery">Products</a></li>
-                                <li><a href="#blog">Parties</a></li>
+                                <li><a href="#about">{{ __("file.About Us") }}</a></li>
+                                <li><a href="#menu">{{ __('file.Menu') }}</a></li>
+                                <li><a href="#our_team">{{ __('file.Team') }}</a></li>
+                                <li><a href="#gallery">{{ __('file.Products') }}</a></li>
+                                <li><a href="#blog">{{ __('file.Parties') }}</a></li>
                                 @else
-                                <li class="{{ Illuminate\Support\Facades\Route::currentRouteName() == 'party'?'active':'' }}"><a href="{{ route('party') }}">Parties</a></li>
-                                <li class="{{ Illuminate\Support\Facades\Route::currentRouteName() == 'products'?'active':'' }}"><a href="{{ route('products') }}">Products</a></li>
+                                <li class="{{ Illuminate\Support\Facades\Route::currentRouteName() == 'party'?'active':'' }}"><a href="{{ route('party') }}">{{ __('file.Parties') }}</a></li>
+                                <li class="{{ Illuminate\Support\Facades\Route::currentRouteName() == 'products'?'active':'' }}"><a href="{{ route('products') }}">{{ __('file.Products') }}</a></li>
                                 @endif
                                 
 
                                 @auth
-                                <li class="{{ Illuminate\Support\Facades\Route::currentRouteName() == 'profile'?'active':'' }}"><a href="{{ route('profile') }}">Profile</a></li>
+                                <li class="{{ Illuminate\Support\Facades\Route::currentRouteName() == 'profile'?'active':'' }}"><a href="{{ route('profile') }}">{{ __('file.Profile') }}</a></li>
                                 @endauth
-                                <li><a href="#footer">Contact us</a></li>
+                                <li><a href="#footer">{{ __('file.Contact us') }}</a></li>
                                 @guest
-                                <li><a href="{{ route('login') }}">Login</a></li>
+                                <li><a href="{{ route('login') }}">{{ __('file.Login') }}</a></li>
                                 @else
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">
-                                                logout
+                                                {{ __('file.logout') }}
                                             </a>
 
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
