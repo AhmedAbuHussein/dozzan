@@ -48,9 +48,19 @@
             
             <div class="row">
                 <div class="form-group col-md-6 offset-md-3">
-                    <label for="name">{{ __('Name') }}</label>
-                    <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control" placeholder="Item Name" required>
-                    @error('name')
+                    <label for="nameen">{{ __('Name In English') }}</label>
+                    <input type="text" name="name[en]" id="nameen" value="{{ old('name.en') }}" class="form-control" placeholder="Item Name English" required>
+                    @error('name.en')
+                    <span class="text-danger">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                     @enderror
+                </div>
+
+                <div class="form-group col-md-6 offset-md-3">
+                    <label for="namear">{{ __('Name In Arabic') }}</label>
+                    <input type="text" name="name[ar]" id="namear" value="{{ old('name.ar') }}" class="form-control" placeholder="Item Name Arabic" required>
+                    @error('name.ar')
                     <span class="text-danger">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -68,9 +78,19 @@
                 </div>
 
                 <div class="form-group col-md-6 offset-md-3">
-                    <label for="details">{{ __('Details') }}</label>
-                    <textarea rows="3" name="details" id="details" class="form-control" placeholder="Item details" required>{{ old('details') }}</textarea>
-                    @error('details')
+                    <label for="detailsen">{{ __('Details In English') }}</label>
+                    <textarea rows="3" name="details[en]" id="detailsen" class="form-control" placeholder="Item details English" required>{{ old('details.en') }}</textarea>
+                    @error('details.en')
+                    <span class="text-danger">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                        @enderror
+                </div>
+
+                <div class="form-group col-md-6 offset-md-3">
+                    <label for="detailsar">{{ __('Details In Arabic') }}</label>
+                    <textarea rows="3" name="details[ar]" id="detailsar" class="form-control" placeholder="Item details Arabic" required>{{ old('details.ar') }}</textarea>
+                    @error('details.ar')
                     <span class="text-danger">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -82,7 +102,7 @@
                     <select class="form-control" name="category_id" required>
                         <option value="">-- Choose --</option>
                         @foreach ($categories as $category)
-                        <option {{ ( old('category_id') == $category->id)? 'selected':'' }} value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option {{  (old('category_id') == $category->id)? 'selected':'' }} value="{{ $category->id }}">{{ $category->name_lang }}</option>
                         @endforeach
                     </select>
                     @error('category_id')

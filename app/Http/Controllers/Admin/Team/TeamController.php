@@ -27,8 +27,10 @@ class TeamController extends Controller
     public function update(Request $request,Team $employee)
     {
         $this->validate($request, [
-            'name'=> 'required|string|min:3|max:20',
-            'details'=> 'required|string|min:10|max:200',
+            'name'=> 'required|array',
+            'name.*'=> 'required|string|min:3',
+            'details'=> 'required|array',
+            'details.*'=> 'required|string|min:3',
             'facebook'=> 'required|url',
             'twitter'=> 'required|url',
             'linkedin'=> 'required|url',
@@ -57,8 +59,10 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'=> 'required|string|min:3|max:20',
-            'details'=> 'required|string|min:10|max:200',
+            'name'=> 'required|array',
+            'name.*'=> 'required|string|min:3',
+            'details'=> 'required|array',
+            'details.*'=> 'required|string|min:3',
             'facebook'=> 'required|url',
             'twitter'=> 'required|url',
             'linkedin'=> 'required|url',

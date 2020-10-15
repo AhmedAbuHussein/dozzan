@@ -40,9 +40,9 @@
 
                     @foreach ($team as $user)
                     <tr class="text-center">
-                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->name_lang }}</td>
                         <td><img src="{{ url($user->image) }}" style="width: 120px;"/></td>
-                        <td>{{ $user->details }}</td>
+                        <td>{{ $user->details_lang }}</td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('admin.team.show', ['employee'=> $user->id]) }}"><i class="fa fa-eye"></i> {{ __('Show') }}</a> 
                             <a class="btn btn-success" href="{{ route('admin.team.edit', ['employee'=> $user->id]) }}"><i class="fa fa-edit"></i> {{ __('Edit') }}</a>

@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h2 class="block-title text-center">
-                Our Parties
+                {{ __('file.Our Parties') }}
             </h2>
                 <div class="blog-box clearfix">
                     @foreach ($parties as $party)

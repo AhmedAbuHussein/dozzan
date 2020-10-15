@@ -27,7 +27,7 @@ class ProductController extends Controller
         $product = AppProduct::find($request->id);
         \Cart::add([
             'id' => $user->id.random_int(1,9999), 
-            'name' => $product->name,
+            'name' => $product->name_lang,
             'price' => $product->price,
             'quantity' => 1,
             'attributes' => [

@@ -29,8 +29,10 @@ class CategoryController extends Controller
     {
         $this->validate($request, [
             'icon'=> "required|regex:/<i class='flaticon-([0-9])+'><\/i>/",
-            'name'=> 'required|string|max:20|min:3',
-            'details'=> 'required|max:255|min:10',
+            'name'=> 'required|array',
+            'name.*'=> 'required|string|min:3',
+            'details'=> 'required|array',
+            'details.*'=> 'required|string|min:3',
             'sort'=> 'required|numeric'
         ]);
 
@@ -50,11 +52,13 @@ class CategoryController extends Controller
     {
         $this->validate($request, [
             'icon'=> "required|regex:/<i class='flaticon-([0-9])+'><\/i>/",
-            'name'=> 'required|string|max:20|min:3',
-            'details'=> 'required|max:255|min:10',
+            'name'=> 'required|array',
+            'name.*'=> 'required|string|min:3',
+            'details'=> 'required|array',
+            'details.*'=> 'required|string|min:3',
             'sort'=> 'required|numeric'
         ]);
-
+        
         cache()->forget('CATEGORY.ALL.SORT');
         cache()->forget('PRODUCT.ALL.CREATED_AT');
         AppCategory::firstOrCreate($request->except('_token'));

@@ -48,11 +48,11 @@
             
             <div class="form-group row">
                 <div class="col-md-4">
-                    <label for="name" class="control-label">{{ __('Name') }}</label>
+                    <label for="nameen" class="control-label">{{ __('Name In English') }}</label>
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name="name" value="{{ old('name') }}" class="form-control" required  id="name" placeholder="employee Name">
-                    @error('name')
+                    <input type="text" name="name[en]" value="{{ old('name.en') }}" class="form-control" required  id="nameen" placeholder="employee Name In English">
+                    @error('name.en')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
@@ -60,11 +60,35 @@
 
             <div class="form-group row">
                 <div class="col-md-4">
-                    <label class="control-label">{{ __('About Employee') }}</label>
+                    <label for="namear" class="control-label">{{ __('Name In Arabic') }}</label>
                 </div>
                 <div class="col-md-8">
-                    <textarea name="details" required placeholder="Details about Employee" class="form-control">{{ old('details') }}</textarea>
-                    @error('details')
+                    <input type="text" name="name[ar]" value="{{ old('name.ar') }}" class="form-control" required  id="namear" placeholder="employee Name In Arabic">
+                    @error('name.ar')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <label class="control-label">{{ __('About Employee In English') }}</label>
+                </div>
+                <div class="col-md-8">
+                    <textarea name="details[en]" required placeholder="Details about Employee In English" class="form-control">{{ old('details.en') }}</textarea>
+                    @error('details.en')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <label class="control-label">{{ __('About Employee In Arabic') }}</label>
+                </div>
+                <div class="col-md-8">
+                    <textarea name="details[ar]" required placeholder="Details about Employee In Arabic" class="form-control">{{ old('details.ar') }}</textarea>
+                    @error('details.ar')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>

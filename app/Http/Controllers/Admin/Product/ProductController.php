@@ -30,8 +30,10 @@ class ProductController extends Controller
     public function update(Request $request, AppProduct $product)
     {
         $this->validate($request, [
-            'name'=> 'required|string|min:3|max:20',
-            'details'=> 'required|string|min:10|max:150',
+            'name'=> 'required|array',
+            'name.*'=> 'required|string|min:3',
+            'details'=> 'required|array',
+            'details.*'=> 'required|string|min:3',
             'image'=>'nullable|image',
             'category_id'=>'required|numeric|exists:categories,id',
         ]);
@@ -66,8 +68,10 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'=> 'required|string|min:3|max:20',
-            'details'=> 'required|string|min:10|max:150',
+            'name'=> 'required|array',
+            'name.*'=> 'required|string|min:3',
+            'details'=> 'required|array',
+            'details.*'=> 'required|string|min:3',
             'image'=>'required|image',
             'category_id'=>'required|numeric|exists:categories,id',
         ]);

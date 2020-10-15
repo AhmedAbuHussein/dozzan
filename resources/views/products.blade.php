@@ -37,9 +37,9 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title text-center">
-                    Our Products
+                    {{ __('file.Our Products') }}
                 </h2>
-                    <div class="title-custom p-white">{!! optional($setting->where('key', 'gallery_desc')->first())->value !!}</div>
+                    <div class="title-custom p-white">{!! optional($setting->where('key', 'gallery_desc')->first())->value_lang !!}</div>
                 </div>
                 <div class="team-box">
 
@@ -51,17 +51,17 @@
                                     <a href="#"><img src="{{ url($item->image) }}" alt=""></a>
                                 </div>
                                 <div class="text-col">
-                                    <h3 style="text-transform: capitalize">{{ $item->name }}}</h3>
+                                    <h3 style="text-transform: capitalize">{{ $item->name_lang }}</h3>
                                     <div class="module">
-                                        <p class="line-clamp">{{ $item->details }}</p>
+                                        <p class="line-clamp">{{ $item->details_lang }}</p>
                                     </div>
                                     @auth
                                         <div class="custom-footer">
-                                            <button data-id="{{ $item->id }}" class="btn btn-block {{ $loop->odd?'btn-success':'btn-danger' }} cart-btn">Add To Cart <span>( {{ $item->price . ' SAR' }} )</span></button>
+                                            <button data-id="{{ $item->id }}" class="btn btn-block {{ $loop->odd?'btn-success':'btn-danger' }} cart-btn">{{ __('file.Add To Cart') }} <span>( {{ $item->price . ' SAR' }} )</span></button>
                                         </div>
                                     @else
                                     <div class="custom-footer">
-                                        <a href="{{ route('login') }}" class="btn btn-block {{ $loop->odd?'btn-success':'btn-danger' }}">Add To Cart <span>( {{ $item->price . ' SAR' }} )</span></a>
+                                        <a href="{{ route('login') }}" class="btn btn-block {{ $loop->odd?'btn-success':'btn-danger' }}">{{ __('file.Add To Cart') }} <span>( {{ $item->price . ' SAR' }} )</span></a>
                                     </div>
                                     @endauth
                                     
@@ -97,7 +97,8 @@
                 $.get("{{ route('add.cart') }}", params, function(res){
                     swal({
                         text: "Product Add To Your Cart",
-                        icon: "success"
+                        icon: "success",
+                        timer: 700
                     })
                 });
             });

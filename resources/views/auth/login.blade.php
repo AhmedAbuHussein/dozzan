@@ -12,7 +12,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group mx-3">
-                            <label for="email">{{ __('E-Mail Address') }}</label>
+                            <label for="email">{{ __('E-Mail') }}</label>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                             @error('email')
@@ -35,7 +35,7 @@
 
                         <div class="form-group mx-3 mb-2">
                             <button type="submit" class="btn btn-primary btn-block">
-                                {{ __('Login') }}
+                                {{ __('file.Login') }}
                             </button>
                         </div>
                         <div class="form-group mx-3 mb-2">
@@ -43,7 +43,7 @@
                         </div>
                         <div class="form-group mx-3 mb-2">
                             <a href="{{ route('register') }}" class="btn btn-success btn-block">
-                                {{ __('Register') }}
+                                {{ __('file.Register') }}
                             </a>
                         </div>
 

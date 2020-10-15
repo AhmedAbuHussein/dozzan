@@ -31,7 +31,10 @@
     <!-- Modernizer -->
     <script src="{{ url('js/modernizer.js') }}"></script>
     <link href="{{ url('css/datatables.min.css') }}" rel="stylesheet">
+    @if (app()->getLocale() == 'ar')
     <link href="{{ url('css/arabic.css') }}" rel="stylesheet" />
+        
+    @endif
     
     @yield('style')
     <!--[if lt IE 9]>

@@ -47,9 +47,9 @@
             <div class="banner-static">
                 <div class="banner-text">
                     <div class="banner-cell">
-                        <h1 id="header">{!! optional($setting->where('key', 'banner_header')->first())->value !!}  <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="{{ optional($setting->where('key', 'banner_words')->first())->value }}" data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
-                        {!! optional($setting->where('key', 'banner_header_two')->first())->value !!}
-                        {!! optional($setting->where('key', 'banner_desc')->first())->value !!}
+                        <h1 id="header">{!! optional($setting->where('key', 'banner_header')->first())->value_lang !!}  <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="{{ optional($setting->where('key', 'banner_words')->first())->value_lang }}" data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
+                        {!! optional($setting->where('key', 'banner_header_two')->first())->value_lang !!}
+                        {!! optional($setting->where('key', 'banner_desc')->first())->value_lang !!}
                         <div class="book-btn">
                             <a href="#reservation" class="table-btn hvr-underline-from-center">{{ __('file.BOOK MY TABLE') }}</a>
                         </div>
@@ -75,16 +75,16 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title"> {{ __('file.About Us') }} </h2>
-                    <h3>{!! optional($setting->where('key', 'about_header')->first())->value !!}</h3>
-                    <p>{!! optional($setting->where('key', 'about_desc')->first())->value !!}</p>
+                    <h3>{!! optional($setting->where('key', 'about_header')->first())->value_lang !!}</h3>
+                    <p>{!! optional($setting->where('key', 'about_desc')->first())->value_lang !!}</p>
                 </div>
             </div>
             <!-- end col -->
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                     <div class="about-images">
-                        <img class="about-main" src="{{ optional($setting->where('key', 'about_image')->first())->value }}" alt="About Main Image">
-                        <img class="about-inset" src="{{ optional($setting->where('key', 'about_image_two')->first())->value }}" alt="About Inset Image">
+                        <img class="about-main" src="{{ optional($setting->where('key', 'about_image')->first())->value_lang }}" alt="About Main Image">
+                        <img class="about-inset" src="{{ optional($setting->where('key', 'about_image_two')->first())->value_lang }}" alt="About Inset Image">
                     </div>
                 </div>
             </div>
@@ -102,9 +102,9 @@
                 <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title color-white text-center"> {{ __("file.Today's Special") }} </h2>
                     @php
-                        $special = $categories->where('name', 'special')->first();
+                        $special = $categories->first();
                     @endphp
-                    <h5 class="title-caption text-center"> {!! optional($special)->details !!} </h5>
+                    <h5 class="title-caption text-center"> {!! optional($special)->details_lang !!} </h5>
                 </div>
                 <div class="special-box">
                     <div id="owl-demo">
@@ -113,9 +113,9 @@
                             <a href="#" class="item-hover">
                                 <div class="item-info">
                                     <div class="headline">
-                                       {{ $item->name }}
+                                       {{ $item->name_lang }}
                                         <div class="line"></div>
-                                        <div class="dit-line">{!! $item->details !!}</div>
+                                        <div class="dit-line">{!! $item->details_lang !!}</div>
                                     </div>
                                 </div>
                             </a>
@@ -144,7 +144,7 @@
                     <h2 class="block-title text-center">
                         {{ __('file.Our Menu') }}
                     </h2>
-                    {!! optional($setting->where('key','menu_desc')->first())->value !!}
+                    {!! optional($setting->where('key','menu_desc')->first())->value_lang !!}
                 </div>
                 <div class="tab-menu">
                     <div class="slider slider-nav">
@@ -153,7 +153,7 @@
                         @endphp
                         @foreach ($cats as $category)
                         <div class="tab-title-menu">
-                            <h2 style="text-transform: uppercase">{{ $category->name }}</h2>
+                            <h2 style="text-transform: uppercase">{{ $category->name_lang }}</h2>
                             <p> {!! $category->icon !!} </p>
                         </div>
                         @endforeach
@@ -166,8 +166,8 @@
                                 <div class="offer-item">
                                     <img src="{{ $product->image }}" alt="" class="img-responsive">
                                     <div style="overflow: hidden">
-                                        <h3 style="text-transform: uppercase">{{ $product->name }}</h3>
-                                            <p class="line-2">{!! $product->details !!}</p>
+                                        <h3 style="text-transform: uppercase">{{ $product->name_lang }}</h3>
+                                            <p class="line-2">{!! $product->details_lang !!}</p>
                                     </div>
                                     <span class="offer-price">{{ $product->price }}</span>
                                 </div>
@@ -196,7 +196,7 @@
                     <h2 class="block-title text-center">
                    {{ __('file.Our Team') }}
                 </h2>
-                    {!! optional($setting->where('key', 'team_desc')->first())->value !!}
+                    {!! optional($setting->where('key', 'team_desc')->first())->value_lang !!}
                 </div>
                 <div class="team-box">
 
@@ -208,8 +208,8 @@
                                     <a href="#"><img src="{{ $item->image }}" alt=""></a>
                                 </div>
                                 <div class="text-col">
-                                    <h3 style="text-transform: capitalize">{{ $item->name }}</h3>
-                                    <p>{{ $item->details }}</p>
+                                    <h3 style="text-transform: capitalize">{{ $item->name_lang }}</h3>
+                                    <p>{{ $item->details_lang }}</p>
                                     <ul class="team-social">
                                         <li><a href="{{ $item->facebook??'/' }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                         <li><a href="{{ $item->twitter??'/' }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -244,7 +244,7 @@
                     <h2 class="block-title text-center">
                     {{ __('file.Our Products') }}
                 </h2>
-                    <div class="title-custom">{!! optional($setting->where('key', 'gallery_desc')->first())->value !!}</div>
+                    <div class="title-custom">{!! optional($setting->where('key', 'gallery_desc')->first())->value_lang !!}</div>
                 </div>
                 <div class="gal-container clearfix">
                     @foreach ($products->random(8) as $key=>$product)
@@ -261,7 +261,7 @@
                                             <img src="{{ $product->image }}" alt="" />
                                         </div>
                                         <div class="col-md-12 description">
-                                            <h4>{{ $product->details }}</h4>
+                                            <h4>{{ $product->details_lang }}</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -391,7 +391,7 @@
                             <div class="col-md-6">
                                  <div class="form-group">
                                      <label for="person">{{ __('file.Persons No.') }}</label>
-                                     <input type="number" value="{{ old('persons') }}" name="persons" id="person" placeholder="{{ __('file.Person No.') }}" class="form-control" required />
+                                     <input type="number" value="{{ old('persons') }}" name="persons" id="person" placeholder="{{ __('file.Persons No.') }}" class="form-control" required />
                                      @error('persons')
                                          <div class="text-danger">{{ $message }}</div>
                                      @enderror

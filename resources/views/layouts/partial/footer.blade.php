@@ -11,16 +11,16 @@
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="footer-box-a">
-                            <h3>About Us</h3>
+                            <h3>{{ __('file.About Us') }}</h3>
                             <div class="" style="max-height: 212px; overflow: hidden">
-                                {!! optional($setting->where('key', 'about_desc')->first())->value !!}
+                                {!! optional($setting->where('key', 'about_desc')->first())->value_lang !!}
                             </div>
 
                             <ul class="socials-box footer-socials pull-left">
                                 @php
                                     $links = optional($setting->where('key', 'social_links')->first());
                                 @endphp
-                                @foreach (json_decode($links->value) as $key=>$link)
+                                @foreach ($links->value_lang as $key=>$link)
                                 <li>
                                     <a href="{{ $link }}">
                                         <div class="social-circle-border"><i class="fa fa-{{ $key }}"></i></div>
@@ -35,10 +35,10 @@
                     <!-- end col -->
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="footer-box-b">
-                            <h3>New Menu</h3>
+                            <h3>{{ __('file.Our Menu') }}</h3>
                             <ul>
                                 @foreach ($categories->random(5) as $item)
-                                <li><a href="#menu">{{ $item->name }}</a></li>
+                                <li><a href="#menu">{{ $item->name_lang }}</a></li>
                                 @endforeach
 
                             </ul>
@@ -48,20 +48,20 @@
                     <!-- end col -->
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="footer-box-c">
-                            <h3>Contact Us</h3>
+                            <h3>{{ __('file.Contact us') }}</h3>
                             <p>
                                 <i class="fa fa-map-signs" aria-hidden="true"></i>
-                                <span>{{ optional($setting->where('key', 'address')->first())->value }}</span>
+                                <span>{{ optional($setting->where('key', 'address')->first())->value_lang }}</span>
                             </p>
                             <p>
                                 <i class="fa fa-mobile" aria-hidden="true"></i>
                                 <span>
-                                    {{ optional($setting->where('key', 'phone')->first())->value }}
+                                    {{ optional($setting->where('key', 'phone')->first())->value_lang }}
                                 </span>
                             </p>
                             <p>
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <span><a href="mailto:{{ optional($setting->where('key', 'email')->first())->value }}">{{ optional($setting->where('key', 'email')->first())->value }}</a></span>
+                                <span><a href="mailto:{{ optional($setting->where('key', 'email')->first())->value_lang }}">{{ optional($setting->where('key', 'email')->first())->value_lang }}</a></span>
                             </p>
                         </div>
                         <!-- end footer-box-c -->
@@ -69,9 +69,9 @@
                     <!-- end col -->
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="footer-box-d">
-                            <h3>Opening Hours</h3>
+                            <h3>{{ __('file.Opening Hours') }}</h3>
 
-                            {!! optional($setting->where('key', 'opening_houres')->first())->value !!}
+                            {!! optional($setting->where('key', 'opening_houres')->first())->value_lang !!}
                         </div>
                         <!-- end footer-box-d -->
                     </div>

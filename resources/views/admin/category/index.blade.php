@@ -42,9 +42,9 @@
                @foreach ($categories as $category)
                    <tr>
                        <td style="line-height: 72px;">{{ $category->sort }}</td>
-                       <td style="line-height: 72px;">{{ $category->name }}</td>
+                       <td style="line-height: 72px;">{{ $category->name_lang }}</td>
                        <td>{!! $category->icon !!}</td>
-                       <td style="width: 45%"><p class="truncate-1-line">{{ $category->details  }}</p></td>
+                       <td style="width: 45%"><p class="truncate-1-line">{{ $category->details_lang  }}</p></td>
                        <td style="line-height: 72px;">
                         <a href="{{ route('admin.categories.show', ['category'=> $category]) }}" class="btn btn-primary">{{ __('Show') }}</a>
                            <a href="{{ route('admin.categories.edit', ['category'=> $category]) }}" class="btn btn-success">{{ __('Edit') }}</a>

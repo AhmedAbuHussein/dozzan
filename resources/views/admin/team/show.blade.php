@@ -28,12 +28,12 @@
                 
                 <div class="row py-3" style="border-bottom: 1px solid #ddd">
                     <div class="col-md-4">{{ __('Name') }}</div>
-                    <div class="col-md-8">{{ $employee->name }}</div>
+                    <div class="col-md-8">{{ $employee->name_lang }}</div>
                 </div>
 
                 <div class="row py-3" style="border-bottom: 1px solid #ddd">
                     <div class="col-md-4">{{ __('Details') }}</div>
-                    <div class="col-md-8">{{ $employee->details }}</div>
+                    <div class="col-md-8">{{ $employee->details_lang }}</div>
                 </div>
 
                 <div class="row py-3" style="border-bottom: 1px solid #ddd">

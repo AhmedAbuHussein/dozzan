@@ -31,23 +31,28 @@ class SettingController extends Controller
             $name = time().'.'.$request->file('file')->getClientOriginalExtension();
             $request->file('file')->storeAs('/images', $name);
             $name = 'images/'.$name;
-            $setting->update(['value'=> $name]);
+            $value = ['en'=>$name, 'ar'=>$name];
+            $setting->update(['value'=> $value]);
         }else if($type == 'text'){
-            $this->validate($request, ['value'=>'required|string']);
+            $this->validate($request, ['value'=>'required|array']);
             $setting->update(['value'=> $request->value]);
         }else if($type == 'words'){
             $this->validate($request, ['value'=>'required|array']);
-            $value = implode(':', $request->value);
+            $en = implode(':', $request->value['en']);
+            $ar = implode(':', $request->value['ar']);
+            $value= ['en'=> $en, 'ar'=> $ar];
             $setting->update(['value'=> $value]);
         }else if($type == 'social'){
             $this->validate($request, ['value'=>'required|array']);
-            $setting->update(['value'=> $request->value]);
+            $value = ['en'=>$request->value, 'ar'=> $request->value];
+            $setting->update(['value'=> $value]);
         }else if($type == 'shipping'){
             $this->validate($request, ['value'=>'required|numeric']);
-            $setting->update(['value'=> $request->value]);
+            $setting->update(['value'=> ['en'=>$request->value, 'ar'=>$request->value]]);
         }else if($type == 'footer'){
             $this->validate($request, ['value'=>'required|string']);
-            $setting->update(['value'=> $request->value]);
+
+            $setting->update(['value'=> ['en'=>$request->value, 'ar'=>$request->value]]);
         }
         
         cache()->forget('SETTING');

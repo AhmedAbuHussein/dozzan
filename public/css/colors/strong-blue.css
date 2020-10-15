@@ -18,13 +18,13 @@
 	border: 3px solid#C0C0C0;
 }
 .book-btn a:hover{
-	border: 3px solid #66afff;
+	border: 3px solid #c9c9c9;
 }
 .hvr-underline-from-center::before{
 	background: #C3C3C3;
 }
 .block-title{
-	color:#C0C0C0;
+	color:#C0C0C0 !important;
 }
 .item-type-zoom .item-hover:hover::before{
 	background: #C2C2C288;

@@ -1,5 +1,6 @@
 <?php
 
+use App\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -8,7 +9,7 @@ Auth::routes();
 Route::redirect('/home', '/');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/parties', 'PartyController@index')->name('party');
-
+Route::get('change-lang-to-{lang}', 'LanguageController@index')->name('change.lang');
 
 
 Route::get('/products', 'ProductController@index')->name('products');

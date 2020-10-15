@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    "Register"=>"Register",
     'BOOK MY TABLE' => 'BOOK MY TABLE',
     'About Us' => 'About Us',
     "Today's Special"=> "Today's Special",
@@ -34,6 +34,33 @@ return [
     "Login"=>"Login",
     "logout"=> "Logout",
     "Contact us"=>"Contact Us",
+    "Add To Cart"=>"Add To Cart",
+    "Opening Hours"=> "Opening Hours",
+
+
+    "Sorry, You Dont Have Any Reservation Yet"=> "Sorry, You Dont Have Any Reservation Yet",
+    "Reservation Status"=>"Reservation Status",
+    "Reservation Type"=>"Reservation Type",
+    "Reservation Name"=>"Reservation Name",
+    "Date Time"=>"Date Time",
+
+
+    "Sorry, You Dont Have Any Orders Yet"=>"Sorry, You Dont Have Any Orders Yet",
+    "Content"=>"Content",
+    "Status"=>"Status",
+    "Total"=>"Total",
+    "Last Update"=>"Last Update",
+    "Sorry, You do not has Any product in you cart"=>"Sorry, You do not has Any product in you cart",
+    "Cart Products"=>"Cart Products",
+    "Process"=>"Process",
+    "Confirm Password"=>"Confirm Password",
+    "New Password"=>"New Password",
+    "Old Password"=>"Old Password",
+    "Phone"=>"Phone",
+    "Email"=>"Email Address",
+    "Shipping"=> "Shipping",
+    "Order Now"=> "Order Now",
     
+   
 
 ];

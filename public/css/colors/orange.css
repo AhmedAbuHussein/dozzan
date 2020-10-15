@@ -24,7 +24,7 @@
 	background:#f04900;
 }
 .block-title{
-	color: #e75b1e;
+	color: #e75b1e !important;
 }
 .item-type-zoom .item-hover:hover::before{
 	background: rgba(231, 91, 30, 0.5);

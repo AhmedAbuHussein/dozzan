@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    "Register"=>"تسجيل في الموقع",
     'BOOK MY TABLE' => 'احجز طاولتك',
     'About Us' => 'عن الموقع',
     "Today's Special"=> "الخاص لليوم",
@@ -34,5 +34,30 @@ return [
     "Login"=>"تسجيل الدخول",
     "logout"=> "تسجيل الخروج",
     "Contact us"=>"تواصل معنا",
+    "Add To Cart"=> "اضف للسلة",
+    "Opening Hours"=> "مواعيد العمل",
+
+    "Sorry, You Dont Have Any Reservation Yet"=> "عقوا لايوجد حجوزات مسبقة",
+    "Reservation Status"=>"حالة الحجز",
+    "Reservation Type"=>"نوع الحجز",
+    "Reservation Name"=>"صاحب الحجز",
+    "Date Time"=>"وقت الحجز",
+
+
+    "Sorry, You Dont Have Any Orders Yet"=>"عقوا لا يوجد اي طلبات سابقة",
+    "Content"=>"المحتوي",
+    "Status"=>"الحالة",
+    "Total"=>"المجموع",
+    "Last Update"=>"اخر تعديل",
+    "Sorry, You do not has Any product in you cart"=>"عفوا لايوجد اي منتجات تم شراءها",
+    "Cart Products"=>"سلة المشتريات",
+    "Process"=>"متابعة",
+    "Confirm Password"=>"تأكيد الرمز السري",
+    "New Password"=>"رمز سري جديد",
+    "Old Password"=>"الرمز السري القديم",
+    "Phone"=>"الهاتف الجوال",
+    "Email"=>"البريد الالكتروني",
+    "Shipping"=> "التوصيل",
+    "Order Now"=> "طلب الان",
 
 ];

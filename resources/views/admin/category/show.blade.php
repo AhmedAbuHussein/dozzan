@@ -30,14 +30,14 @@
                     <div class="col-md-4">
                         <h4 class="text-muted">{{ __('Name') }}</h4>
                     </div>
-                    <div class="col-md-8"><p>{{ $category->name }}</p></div>
+                    <div class="col-md-8"><p>{{ $category->name_lang }}</p></div>
                 </div>
 
                 <div class="row bg-white" style="border-bottom: 1px solid rgb(207, 209, 208);">
                     <div class="col-md-4 d-flex align-items-center" style="border-right: 1px solid rgb(207, 209, 208);">
                         <h4 class="text-muted px-2">{{ __('Details') }}</h4>
                     </div>
-                    <div class="col-md-8"><p class="py-3 mb-0">{{ $category->details }}</p></div>
+                    <div class="col-md-8"><p class="py-3 mb-0">{{ $category->details_lang }}</p></div>
                 </div>
 
                 <div class="row">

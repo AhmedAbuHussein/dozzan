@@ -41,30 +41,30 @@
                                  $item->key == 'about_image_two' ||
                                  $item->key == 'about_imag' || 
                                  $item->key == 'about_image')
-                                <img src="{{ url($item->value) }}" alt="{{ $item->key }}" width="150px" />
+                                <img src="{{ url($item->value_lang) }}" alt="{{ $item->key }}" width="150px" />
                                 @php  $type = "image";  @endphp
                             @elseif($item->key == 'social_links')
                             <ul>
-                                @foreach (json_decode($item->value) as $val)
+                                @foreach ($item->value_lang as $val)
                                 <li>{{ $val }}</li>
                                 @endforeach
                             </ul>
                             @php  $type = "social";  @endphp
                             @elseif( $item->key == 'banner_words')
                                 <ul>
-                                    @foreach (explode(':', $item->value) as $word)
+                                    @foreach (explode(':', $item->value_lang) as $word)
                                         <li>{{ $word }}</li>
                                     @endforeach
                                 </ul>
                                 @php  $type = "words";  @endphp
                             @elseif( $item->key == 'shipping')
-                                {!! $item->value  !!}
+                                {!! $item->value_lang  !!}
                                 @php  $type = "shipping";  @endphp
                             @elseif( $item->key == 'address' || $item->key == 'phone' || $item->key == 'email')
-                                {!! $item->value  !!}
+                                {!! $item->value_lang  !!}
                                 @php  $type = "footer";  @endphp
                             @else
-                                {!! $item->value  !!}
+                                {!! $item->value_lang  !!}
                                 @php  $type = "text";  @endphp
                             @endif
                         </td>

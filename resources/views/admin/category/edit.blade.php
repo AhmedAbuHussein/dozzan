@@ -43,9 +43,9 @@
 
             <div class="row">
                 <div class="form-group col-md-6 offset-md-3">
-                    <label for="name">{{ __('Name') }}</label>
-                    <input type="text" name="name" id="name" value="{{ old('name')??$category->name }}" class="form-control" placeholder="Category Name" required>
-                    @error('name')
+                    <label for="name">{{ __('Name In English') }}</label>
+                    <input type="text" name="name[en]" id="name" value="{{ old('name.en')??$category->name['en'] }}" class="form-control" placeholder="Category Name English" required>
+                    @error('name.en')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
@@ -53,9 +53,29 @@
 
             <div class="row">
                 <div class="form-group col-md-6 offset-md-3">
-                    <label for="details">{{ __('Details') }}</label>
-                    <textarea name="details" id="details" class="form-control" placeholder="Category Details" required>{{ old('details')??$category->details }}</textarea>
-                    @error('details')
+                    <label for="name">{{ __('Name In Arabic') }}</label>
+                    <input type="text" name="name[ar]" id="name" value="{{ old('name.ar')??$category->name['ar'] }}" class="form-control" placeholder="Category Name Arabic" required>
+                    @error('name.ar')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6 offset-md-3">
+                    <label for="detailsen">{{ __('Details In English') }}</label>
+                    <textarea name="details[en]" id="detailsen" class="form-control" placeholder="Category Details English" required>{{ old('details.en')??$category->details['en'] }}</textarea>
+                    @error('details.ar')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6 offset-md-3">
+                    <label for="detailsar">{{ __('Details In Arabic') }}</label>
+                    <textarea name="details[ar]" id="detailsar" class="form-control" placeholder="Category Details Arabic" required>{{ old('details.ar')??$category->details['ar'] }}</textarea>
+                    @error('details.ar')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>

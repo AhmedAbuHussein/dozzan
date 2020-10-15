@@ -43,9 +43,9 @@
 
                     @foreach ($products as $product)
                         <tr>
-                            <td style="line-height: 67px;">{{ $product->name }}</td>
-                            <td style="line-height: 67px;"><img style="height:65px;" src="{{ url($product->image) }}" title="{{ $product->name }}" ></td>
-                            <td style="line-height: 67px;">{{ $product->category->name }}</td>
+                            <td style="line-height: 67px;">{{ $product->name_lang }}</td>
+                            <td style="line-height: 67px;"><img style="height:65px;" src="{{ url($product->image) }}" title="{{ $product->name_lang }}" ></td>
+                            <td style="line-height: 67px;">{{ $product->category->name_lang }}</td>
                             <td style="line-height: 67px;">{{ $product->price }}</td>
                             <td style="line-height: 67px;">
                                 <a href="{{ route('admin.products.show', ['product'=> $product]) }}" class="btn btn-primary">{{ __('Show') }}</a>
